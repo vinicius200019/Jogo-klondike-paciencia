@@ -2,7 +2,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" />
-  <img src= https://upload.wikimedia.org/wikipedia/commons/b/be/Pygame_logo.svg utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original/>
+  <img src= https://img.shields.io/badge/-Pygame-000000?style=flat-square&logo=python&logoColor=white />
 </p>
 
 ---
