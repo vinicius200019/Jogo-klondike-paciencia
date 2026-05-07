@@ -8,65 +8,76 @@
 
 ## 📝 Sobre o Projeto
 
-O **V-ERP** é uma solução robusta para o Planejamento de Recursos Empresariais. Este sistema foi projetado para centralizar operações, oferecendo uma interface amigável e um backend eficiente para o controle de dados em tempo real.
+O Klondike Python é uma recriação digital do clássico jogo de cartas Paciência (Klondike). Desenvolvido inteiramente em Python utilizando a biblioteca Pygame, o projeto combina a lógica complexa das regras do jogo com uma interface gráfica interativa, oferecendo recursos modernos como dicas visuais e histórico de jogadas.
 
-> **Status do Projeto:** 🛠️ Em desenvolvimento (Fase de Implementação de APIs)
+> **Status do Projeto:** ✔️ Concluído / Funcional
 
 ---
 
 ## ✨ Funcionalidades Principais
 
-* **🔐 Controle de Acesso:** Sistema de login com autenticação via PHP e MySQL.
-* **📊 Dashboard Dinâmico:** Visualização clara das métricas do sistema.
-* **📂 Organização Modular:** Código separado em diretórios específicos para facilitar a escalabilidade.
-* **⚡ Respostas em Tempo Real:** Integração de JavaScript para uma experiência de usuário fluida.
+* **🎮 Interface Gráfica (GUI)** Sistema de login com autenticação via PHP e MySQL.
+* **↩️ Sistema de Desfazer:** Errou a jogada? O jogo armazena até 50 estados anteriores para você desfazer movimentos (via botão ou Ctrl+Z).
+* **💡 Sistema de Dicas Inteligente:** Destaca visualmente no tabuleiro quais cartas podem ser movidas e para onde.
+* **📊 Métricas de Partida:** Acompanhamento em tempo real do tempo de jogo e contador de movimentos.
+* **📜 Estratégias e Regras:** Menu in-game contendo dicas e estratégias para vencer a partida.
+* **🏆 Tela de Vitória:** Animação e tela de parabenização ao completar as fundações, exibindo seu tempo e total de movimentos.
 
 ---
 
 ## ⚙️ Tecnologias Utilizadas
 
-O projeto utiliza o que há de melhor na stack web clássica:
-1.  **Front-end:** Estruturação com HTML5 e estilização moderna com CSS3.
-2.  **Lógica de Client-side:** JavaScript para manipulação do DOM e requisições.
-3.  **Back-end:** PHP para processamento de lógica de negócio e segurança.
-4.  **Banco de Dados:** MySQL para persistência de dados.
+Este projeto utiliza um ambiente Python focado em desenvolvimento de jogos 2D:
+1.  **Linguagem Base:** Python 3.x para toda a lógica orientada a objetos (classes Carta, JogoKlondike e InterfaceJogo).
+2.  **Renderização Gráfica:** Pygame para manipulação de janelas, eventos de mouse/teclado, desenho de formas (cartas, botões) e controle de FPS.
+3.  **Bibliotecas Padrão:** random (embaralhamento), time (controle de dicas) e sys (sistema).
 
 ---
 
 ## 🚀 Como Configurar o Ambiente
 
-Para rodar o V-ERP localmente, siga estes passos:
+Para rodar o Klondike localmente, siga estes passos:
 
-### 1. Preparação do Servidor
-Certifique-se de ter o **XAMPP** ou similar instalado. Inicie os módulos **Apache** e **MySQL**.
+### 1. Pré-requisitos
+Certifique-se de ter o **Python**(versão 3.6 ou superior) instalado na sua máquina.
 
-### 2. Instalação do Código
-Clone este repositório dentro da pasta `htdocs`:
+### 2. Instalação do Pygame
+Abra o seu terminal e instale a biblioteca gráfica necessária:
 ```bash
-git clone [https://github.com/vinicius200019/v_erp.git](https://github.com/vinicius200019/v_erp.git)
+pip install pygame
+```
+
+### 3. Download do Projeto
+Clone este repositório para a sua máquina local:
+```bash
+git clone https://github.com/SEU_USUARIO/klondike_python.git
 ```
 
 ---
 
 ## 📈 Fluxo do Sistema
 
-[ADMIN] cadastra produto novo no estoque
+[SISTEMA] Gera o baralho (52 cartas), embaralha e distribui nas 7 colunas do Tableau e no Estoque
 
-   ↓
-   
-[ADMIN] registra compra do fornecedor (estoque sobe)
-   
-   ↓
-   
-[CLIENTE] entra na tela de loja, escolhe o produto, compra
-   
-   ↓
-   
-[SISTEMA] registra venda automaticamente, estoque desce
-   
-   ↓
-   
-[ADMIN] vê tudo no dashboard
+↓
+
+[JOGADOR] Clica em uma carta (Estoque, Descarte ou Tableau)
+
+↓
+
+[SISTEMA] Valida a cor, o naipe e o valor sequencial da carta selecionada em relação ao destino
+
+↓
+
+[SISTEMA] Se válido, move a carta, atualiza o histórico (para a função Desfazer) e conta o movimento
+
+↓
+
+[JOGADOR] Preenche todas as 4 fundações do Ás ao Rei
+
+↓
+
+[SISTEMA] Detecta a condição de vitória e exibe a tela de Parabéns com os status da partida
 
 ---
 
@@ -75,118 +86,26 @@ git clone [https://github.com/vinicius200019/v_erp.git](https://github.com/vinic
 Abaixo está a organização dos arquivos e pastas do repositório:
 
 ```text
-v_erp/
-
-├── 📄 index.html
-
-├── 📁 css/
-
-│ └── 📄 style.css
-
-├── 📁 js/
-
-│ ├──📄 auth.js
-
-│ ├──📄 dashboard.js
-
-│ ├──📄 compras.js
-
-│ ├──📄 login.js
-
-│ ├──📄 produtos.js
-
-│ ├──📄 sidebar.js
-
-│ └──📄 usuarios.js
-
-├── 📁 pages/
-
-│ ├── 📄compras.html
-
-│ ├── 📄 dashboard.html
-
-│ ├── 📄 login.html
-
-│ ├── 📄 produtos.html
-
-│ ├── 📄 sidebar.html
-
-│ └── 📄 usuarios.html
-
-├── 📁 php/
-
-│ ├── 📁 db/
-
-│ │ ├── 📄compras_db.php
-
-│ │ ├── 📄 dashboard_db.php
-
-│ │ ├── 📄 login_db.php
-
-│ │ ├── 📄 produtos_db.php
-
-│ │ ├── 📄 sidebar_db.php
-
-│ │ └── 📄 usuarios_db.php
-
-│ └── 📁 api/
-
-│ │ ├── 📄api_compras.php
-
-│ │ ├── 📄api_dashboard.php
-
-│ │ ├── 📄api_login.php
-
-│ │ ├── 📄api_produtos.php
-
-│ │ ├── 📄api_sidebar.php
-
-│ │ └── 📄api_usuarios.php
-
-│ ├──  📁 sql/
-│ └── 📄 database.sql
+klondike_python/
+│
+├── 📄 main.py               # Arquivo principal que gerencia a interface Pygame e eventos
+└── 📄 klondike_game.py      # Módulo contendo a lógica e regras do jogo (State Manager)
 ```
+
 ---
+
 ## 🚀 Como Rodar na Sua Máquina
 
-Siga o guia passo a passo para configurar o ambiente local de forma correta:
-
-### 1. Pré-requisitos
-
-Certifique-se de ter instalado um ambiente de servidor local que suporte PHP e MySQL:
-
-XAMPP (Recomendado)
-
-WampServer
-
-### 2. Download do Projeto
-
-Navegue até a pasta raiz do seu servidor local (geralmente C:/xampp/htdocs/) e execute o comando abaixo no terminal:
+Com as bibliotecas instaladas e o repositório clonado, navegue até a pasta raiz do projeto pelo terminal e execute o arquivo principal:
 
 ```bash
-git clone [https://github.com/vinicius200019/v_erp.git](https://github.com/vinicius200019/v_erp.git)
+cd klondike_python
+python main.py
 ```
-### 3. Configuração do Banco de Dados
 
-1 - Abra o painel de controle do seu servidor e inicie os módulos Apache e MySQL.
-
-2 - Acesse o gerenciador de banco de dados no seu navegador: http://localhost/phpmyadmin/.
-
-3 - Crie um novo banco de dados chamado v_erp_db.
-
-4 - Clique na aba Importar, selecione o arquivo .sql que está dentro da pasta /sql do projeto e confirme.
-
-### 4. Execução do Sistema
-
-Com tudo configurado, basta acessar o endereço abaixo no seu navegador:
-
-```bash
-http://localhost/v_erp/index.html
-```
+A janela do jogo será aberta automaticamente!
 
 ## ⌨️ Desenvolvedores
-
-
 
 <strong>Vinícius</strong>
 
